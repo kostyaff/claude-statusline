@@ -63,12 +63,12 @@ process.stdin.on("end", () => {
     const lc = (p) => (p > 80 ? C.red : p > 50 ? C.yellow : C.green);
     const segs = [];
     if (rl.five_hour) {
-      const p = rl.five_hour.used_percentage || 0;
+      const p = Math.round(rl.five_hour.used_percentage || 0);
       const t = dur(rl.five_hour.resets_at);
       segs.push(`${C.gray}h ${lc(p)}${p}%${C.reset}` + (t ? ` ${C.gray}${t}${C.reset}` : ""));
     }
     if (rl.seven_day) {
-      const p = rl.seven_day.used_percentage || 0;
+      const p = Math.round(rl.seven_day.used_percentage || 0);
       const t = dur(rl.seven_day.resets_at);
       segs.push(`${C.gray}W ${lc(p)}${p}%${C.reset}` + (t ? ` ${C.gray}${t}${C.reset}` : ""));
     }
